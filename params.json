@@ -1,0 +1,8 @@
+{
+  "project_name": "Test OpenSSF Baseline",
+  "organization": "mlieberman85",
+  "repo_name": "security-baseline",
+  "security_email": "security@example.com",
+  "year": "2025",
+  "copyright_holder": "OpenSSF Test"
+}

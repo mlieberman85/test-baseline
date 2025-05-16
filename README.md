@@ -101,3 +101,25 @@ Examples of types of actions that are prohibited at Linux Foundation meetings an
 
 [how the project operates]: governance/GOVERNANCE.md
 [how to report security-related issues]: governance/SECURITY.md
+
+## User Guide
+
+For detailed usage instructions, please see:
+
+### Installation
+
+```bash
+# Example installation commands
+git clone https://github.com/example/Test OpenSSF Baseline.git
+cd Test OpenSSF Baseline
+make install
+```
+
+### Basic Usage
+
+```bash
+# Example command for basic usage
+Test OpenSSF Baseline --help
+```
+
+For more detailed information, please see the full documentation.
