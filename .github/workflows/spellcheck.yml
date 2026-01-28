@@ -16,6 +16,6 @@ jobs:
                 persist-credentials: false
     
           - name: Spellcheck all content
-            uses: streetsidesoftware/cspell-action@eb29b6a67d122d2e6af385ff16bdb200d93b2e54 # v7.0.0
+            uses: streetsidesoftware/cspell-action@d5d910b521ad408f1e7383c24609079f5a88bdca # v8.2.0
             with:
               config: .cspell.yaml       
