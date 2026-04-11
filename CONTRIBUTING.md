@@ -1,43 +1,68 @@
-# Contributing to the Security Baseline
+# Contributing to Test OpenSSF Baseline
 
-## Contributing to the Controls:
+Thank you for your interest in contributing to Test OpenSSF Baseline! This document provides guidelines and instructions for contributing to this project.
 
-Currently, all the baseline controls are in `baseline.yaml`; follow the structure
-[in the README](./README.md#baseline-structure) when proposing new entries.
+## Code of Conduct
 
-## Contributing to the Tooling:
+By participating in this project, you agree to abide by our Code of Conduct. We expect all contributors to be respectful and considerate of others.
 
-The baseline is published to https://baseline.openssf.org/ (via GitHub Pages) via
-Jekyll (a static site generator) using scripts from `./cmd` and formatting from
-`./docs`, using GitHub Actions.
+## How to Contribute
 
-## PR guidelines
+### Reporting Issues
 
-All changes to the repository should be made via PR
-([OSPS-AC-03](https://baseline.openssf.org/#osps-ac-03)).  In addition to a clear
-title and descriptive commit message, PRs MUST meet the following criteria:
+If you find a bug or have a suggestion for improving the project, please first check if the issue already exists in our issue tracker. If not, feel free to open a new issue with a clear description of the problem or suggestion.
 
-* DCO signoff (via `git commit -s` -- [OSPS-LE-01](https://baseline.openssf.org/#osps-le-01))
-* All checks must pass ([OSPS-QA-04](https://baseline.openssf.org/#osps-qa-04))
+When reporting issues, please include:
+- A clear and descriptive title
+- A detailed description of the issue
+- Steps to reproduce the behavior
+- Expected behavior
+- Screenshots (if applicable)
+- Any relevant logs or error messages
 
-### Check Go Tooling Linter
+### Submitting Changes
 
-The OSPS Baseline tools are written in Go and the repository enforces linting on
-every pull request. Before opening a PR, you can test your changes make the linter
-happy by running [golangci-lint](https://golangci-lint.run/) locally in
-the `cmd/` directory:
+1. Fork the repository
+2. Create a new branch for your changes (`git checkout -b feature/your-feature-name`)
+3. Make your changes
+4. Run any tests to ensure your changes don't break existing functionality
+5. Commit your changes with clear commit messages
+6. Push your branch to your fork
+7. Submit a Pull Request to the main repository
 
-```bash
-cd cmd/
-golangci-lint run
-```
+### Pull Request Process
 
-### CSpell Check and Dictionary
+1. Ensure your PR includes a clear description of the changes and the value they add
+2. Update documentation as necessary
+3. Your PR will be reviewed by maintainers who may request changes
+4. Once approved, your PR will be merged
 
-The repo will enforce spell checks across the codebase. If you introduce new words
-that the spell checker does not recognize, just add them to the `.cspell.yaml` file.
+## Development Setup
 
-## Maintainer Status
+To set up your development environment:
 
-See [./governance/GOVERNANCE.md](./governance/GOVERNANCE.md#maintainer-status) for
-the process of achieving maintainer status on the project.
+1. Clone the repository: `git clone https://github.com/mlieberman85/security-baseline.git`
+2. Install dependencies following the instructions in the README
+3. Make your changes
+4. Test your changes locally before submitting
+
+## Coding Standards
+
+Please follow these coding standards:
+
+- Write clear, readable, and well-documented code
+- Follow the existing code style and conventions
+- Write tests for new features or bug fixes
+- Keep pull requests focused on a single change
+
+## Documentation
+
+Documentation is a critical part of our project. Please update relevant documentation when making changes:
+
+- README.md for user-facing changes
+- Code comments for implementation details
+- Any additional documentation specific to your changes
+
+## License
+
+By contributing to Test OpenSSF Baseline, you agree that your contributions will be licensed under the project's license.

@@ -1,0 +1,101 @@
+{
+  "project_name": "Test OpenSSF Baseline",
+  "repository": "https://github.com/mlieberman85/test-baseline",
+  "steps": [
+    {
+      "id": "create-security-branch",
+      "action_name": "create-branch",
+      "params": {
+        "branch_name": "add-security-baseline-docs"
+      },
+      "reason": "Create branch for security documentation"
+    },
+    {
+      "id": "add-contributing-docs",
+      "action_name": "add-contributing-md",
+      "params": {
+        "name": "Test OpenSSF Baseline",
+        "repository": "mlieberman85/security-baseline"
+      },
+      "reason": "Add CONTRIBUTING.md file (OSPS-GV-03.01)",
+      "depends_on": [
+        "create-security-branch"
+      ]
+    },
+    {
+      "id": "add-license-apache",
+      "action_name": "add-license-apache",
+      "params": {
+        "copyright_holder": "mlieberman85",
+        "license_type": "apache-2.0",
+        "name": "Test OpenSSF Baseline",
+        "year": "2025"
+      },
+      "reason": "Add LICENSE file (OSPS-LE-02.01, OSPS-LE-03.01)",
+      "depends_on": [
+        "create-security-branch"
+      ]
+    },
+    {
+      "id": "add-user-guide",
+      "action_name": "update-readme-md",
+      "params": {
+        "add_user_guide": true,
+        "name": "Test OpenSSF Baseline"
+      },
+      "reason": "Add user guide documentation (OSPS-DO-01.01)",
+      "depends_on": [
+        "create-security-branch"
+      ]
+    },
+    {
+      "id": "add-files-to-git",
+      "action_name": "git-add",
+      "params": {
+        "files": "."
+      },
+      "reason": "Stage security documentation files",
+      "depends_on": [
+        "create-security-branch",
+        "add-contributing-docs",
+        "add-license-apache",
+        "add-user-guide"
+      ]
+    },
+    {
+      "id": "commit-security-docs",
+      "action_name": "git-commit",
+      "params": {
+        "message": "Add OpenSSF Baseline security documentation"
+      },
+      "reason": "Commit security documentation to branch",
+      "depends_on": [
+        "add-files-to-git"
+      ]
+    },
+    {
+      "id": "push-security-branch",
+      "action_name": "git-push",
+      "params": {
+        "branch": "add-security-baseline-docs"
+      },
+      "reason": "Push branch to remote repository",
+      "depends_on": [
+        "commit-security-docs"
+      ]
+    },
+    {
+      "id": "create-security-pr",
+      "action_name": "create-pr",
+      "params": {
+        "body": "This PR adds documentation to comply with the OpenSSF Baseline security controls:\n\n{{if findings.failed_controls.exists(c, c == 'OSPS-VM-04.01')}}\n- SECURITY.md file for vulnerability reporting (OSPS-VM-04.01)\n{{end}}\n{{if findings.failed_controls.exists(c, c == 'OSPS-GV-03.01')}}\n- CONTRIBUTING.md guide (OSPS-GV-03.01)\n{{end}}\n{{if findings.failed_controls.exists(c, c == 'OSPS-LE-02.01' || c == 'OSPS-LE-03.01')}}\n- LICENSE file (OSPS-LE-02.01, OSPS-LE-03.01)\n{{end}}\n{{if findings.failed_controls.exists(c, c == 'OSPS-DO-01.01')}}\n- User guide documentation (OSPS-DO-01.01)\n{{end}}\n\nThese changes address findings from the Privateer tool report.\n",
+        "repo": "mlieberman85/security-baseline",
+        "title": "Add OpenSSF Baseline security documentation"
+      },
+      "reason": "Create PR for security documentation",
+      "depends_on": [
+        "push-security-branch"
+      ]
+    }
+  ]
+}
